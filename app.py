@@ -23,7 +23,7 @@ if uploaded_files:
             df = pd.read_excel(file)
         else:
           st.error(f"Unsupported file type: {file_ext}")
-            continue  # ✅ Corrected
+          continue  # ✅ Corrected
 
     # Display info about the file
     st.write(f"**File Name:** {file.name}")
