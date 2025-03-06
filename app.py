@@ -20,14 +20,15 @@ if uploaded_files:
         if file_ext == ".csv":
             df = pd.read_csv(file)
         elif file_ext == ".xlsx":
-            df = pd.read_excel(file)
+            df = pd.read_excel(file, engine=None)  # Let pandas auto-detect
+
             
         else:
           st.error(f"Unsupported file type: {file_ext}")
           continue  # ✅ Corrected
 
     # Display info about the file
-    st.write(f"**📄File Name:** {file.name}")
+    st.write(f"File Extension: {file_ext}")  # Debugging
     st.write(f"**📏File Size:** {file.size/1024}")
 
      # Show 5 rows of our df
